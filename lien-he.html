@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC News - Liên Hệ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>KBC</h1>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+            <button id="mode-toggle">🌙 Dark Mode</button>
+        </ul>
+    </nav>
+    <header>
+        <h2>Liên Hệ</h2>
+    </header>
+    <main>
+        <section>
+            <h3>Gửi ý kiến phản hồi</h3>
+            <form action="#" method="post">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Nội dung:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 KBC News. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // Kiểm tra nếu người dùng đã chọn chế độ trước đó
+    if (localStorage.getItem('mode') === 'dark') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️ Light Mode';
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+            modeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('mode', 'light');
+            modeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
+</script>

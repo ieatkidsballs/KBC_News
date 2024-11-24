@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC News</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>KBC News</h1>
+        <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="lien-he.html">Liên hệ</a></li>
+            <button id="mode-toggle">🌙 Dark Mode</button>
+        </ul>
+        
+    </nav>
+
+    <header>
+        <h2>Tin tức nổi bật</h2>
+    </header>
+
+    <main>
+        <section class="news-list">
+            <!-- Bài viết 1 -->
+            <div class="news-item">
+                <img src="photo1715236234542-1715236235147938955871.webp" alt="Hình ảnh bài viết 1">
+                <div class="news-content">
+                    <h3><a href="bai-viet-1.html">Căng thẳng Nga - Anh</a></h3>
+                    <p>Nga đe dọa tấn công Anh bằng tên lửa mới, trong khi Anh tuyên bố sẵn sàng chiến đấu nếu Nga xâm lược Đông Âu. Thủ tướng Anh khẳng định vẫn ủng hộ Ukraine.</p>
+                </div>
+            </div>
+
+            <!-- Bài viết 2 -->
+            <div class="news-item">
+                <img src="images.jfif" alt="Hình ảnh bài viết 2">
+                <div class="news-content">
+                    <h3><a href="bai-viet-2.html">Israel không kích Lebanon</a></h3>
+                    <p>Các cuộc không kích tại Lebanon khiến hàng chục người chết, bao gồm 20 người ở Beirut, làm tăng nguy cơ xung đột khu vực.</p>
+                </div>
+            </div>
+
+            <!-- Bài viết 3 -->
+            <div class="news-item">
+                <img src="gay.vn.jfif" alt="Hình ảnh bài viết 3">
+                <div class="news-content">
+                    <h3><a href="bai-viet-3.html">COP29 và tài chính khí hậu</a></h3>
+                    <p>Gần 200 quốc gia đồng ý gói tài chính khí hậu 300 tỷ USD/năm để hỗ trợ các nước đang phát triển, nhằm đối phó với biến đổi khí hậu và thúc đẩy phát triển bền vững.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KBC News. Tất cả các quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>
+<script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // Kiểm tra nếu người dùng đã chọn chế độ trước đó
+    if (localStorage.getItem('mode') === 'dark') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️ Light Mode';
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+            modeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('mode', 'light');
+            modeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
+</script>

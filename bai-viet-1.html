@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài viết 1 - KBC News</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>KBC</h1>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+            <button id="mode-toggle">🌙 Dark Mode</button>
+        </ul>
+    </nav>
+    <header>
+        <h2>Bài Viết 1</h2>
+    </header>
+    <main>
+        <article>
+            <img src="photo1715236234542-1715236235147938955871.webp" alt="Hình ảnh bài viết 1">
+            <h3>Căng thẳng leo thang giữa Nga và Anh</h3>
+            <p><strong>Ngày đăng:</strong> 24/11/2024</p>
+            <p>
+                Tổng thống Nga Vladimir Putin đã tổ chức một cuộc họp bí mật sau khi đưa ra lời đe dọa tấn công Anh bằng tên lửa mới. 
+                Diễn biến này xuất hiện trong bối cảnh Tướng Rob Magowan, chỉ huy quân đội Anh, tuyên bố rằng Anh sẵn sàng tham chiến nếu Nga xâm lược một quốc gia Đông Âu khác. Thủ tướng Sir Keir Starmer khẳng định rằng Anh không tham chiến nhưng kiên quyết ủng hộ Ukraine chống lại sự xâm lược của Nga.
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2024 KBC News. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // Kiểm tra nếu người dùng đã chọn chế độ trước đó
+    if (localStorage.getItem('mode') === 'dark') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️ Light Mode';
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+            modeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('mode', 'light');
+            modeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
+</script>

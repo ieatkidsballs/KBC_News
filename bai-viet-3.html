@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài viết 1 - KBC News</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>KBC</h1>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="lien-he.html">Liên Hệ</a></li>
+            <button id="mode-toggle">🌙 Dark Mode</button>
+        </ul>
+    </nav>
+    <header>
+        <h2>Bài Viết 1</h2>
+    </header>
+    <main>
+        <article>
+            <img src="gay.vn.jfif" alt="Hình ảnh bài viết 3">
+            <h3>Cam kết tài chính khí hậu tại COP29</h3>
+            <p><strong>Ngày đăng:</strong> 24/11/2024</p>
+            <p>
+                Tại Hội nghị thượng đỉnh khí hậu COP29 ở Baku, gần 200 quốc gia đã thống nhất một gói tài chính khí hậu trị giá 300 tỷ USD mỗi năm để hỗ trợ các nước đang phát triển. Thỏa thuận này nhằm giải quyết tác động của biến đổi khí hậu và thúc đẩy phát triển bền vững trên toàn cầu.
+            </p>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2024 KBC News. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // Kiểm tra nếu người dùng đã chọn chế độ trước đó
+    if (localStorage.getItem('mode') === 'dark') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️ Light Mode';
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+            modeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('mode', 'light');
+            modeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
+</script>
