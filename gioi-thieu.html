@@ -13,6 +13,7 @@
             <li><a href="index.html">Trang Chủ</a></li>
             <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
             <li><a href="lien-he.html">Liên Hệ</a></li>
+            <li><a href="settings.html" class="active">Cài đặt</a></li>
             <button id="mode-toggle">🌙 Dark Mode</button>
         </ul>
     </nav>
@@ -20,16 +21,32 @@
         <h2>Giới Thiệu</h2>
     </header>
     <main>
-        <section>
-            <h3>Về KBC News</h3>
+        <section class="about-section">
+            <h1>Giới thiệu về KBC News 📰</h1>
             <p>
-                KBC News là trang tin tức hàng đầu cung cấp các thông tin nhanh chóng, chính xác và đa dạng. Chúng tôi cam kết mang đến trải nghiệm báo chí chất lượng với mục tiêu phục vụ độc giả một cách tốt nhất.
+                Chào mừng bạn đến với <strong>KBC News</strong> – nơi cập nhật những tin tức nóng hổi và chính xác nhất! 🌍💡 
+                Chúng tôi tự hào mang đến cho bạn những thông tin đa dạng từ mọi lĩnh vực, bao gồm:
             </p>
-            <h3>Sứ mệnh</h3>
+            <ul>
+                <li>🌎 <strong>Thời sự quốc tế:</strong> Các sự kiện quan trọng trên thế giới.</li>
+                <li>🇻🇳 <strong>Thời sự Việt Nam:</strong> Những câu chuyện nổi bật trong nước.</li>
+                <li>💼 <strong>Kinh tế:</strong> Phân tích thị trường và xu hướng kinh doanh.</li>
+                <li>🎭 <strong>Giải trí:</strong> Tin tức về âm nhạc, điện ảnh và nghệ thuật.</li>
+                <li>🚀 <strong>Công nghệ:</strong> Những tiến bộ và đổi mới đột phá.</li>
+            </ul>
             <p>
-                KBC News luôn đặt độc giả lên hàng đầu, trở thành nguồn thông tin đáng tin cậy trong mọi lĩnh vực: xã hội, chính trị, công nghệ, giải trí và nhiều hơn nữa.
+                Được sáng lập với mục tiêu kết nối mọi người thông qua thông tin, KBC News cam kết cung cấp nội dung 
+                khách quan và hữu ích, giúp bạn không bỏ lỡ bất kỳ điều gì quan trọng. 🔗✨ 
+            </p>
+            <p>
+                Tại KBC News, chúng tôi luôn lắng nghe ý kiến từ độc giả. Đội ngũ phóng viên và biên tập viên của chúng tôi 
+                làm việc không ngừng nghỉ để đảm bảo mọi bài viết đều đạt chất lượng cao nhất. 🖋️💻
+            </p>
+            <p>
+                <strong>KBC News</strong> – Tin tức bạn cần, nơi bạn tin tưởng! Hãy cùng chúng tôi khám phá thế giới 🌟📖.
             </p>
         </section>
+        
     </main>
     <footer>
         <p>&copy; 2024 KBC News. All rights reserved.</p>
@@ -57,3 +74,24 @@
         }
     });
 </script>
+
+
+<script>
+    // Tải lựa chọn ngôn ngữ từ localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedLanguage = localStorage.getItem("language");
+        if (savedLanguage) {
+            document.querySelector(`input[value="${savedLanguage}"]`).checked = true;
+        }
+    });
+    
+    // Lưu ngôn ngữ khi nhấn nút
+    document.getElementById("save-settings").addEventListener("click", () => {
+        const selectedLanguage = document.querySelector('input[name="language"]:checked').value;
+        localStorage.setItem("language", selectedLanguage);
+        alert(`Cài đặt đã được lưu: ${selectedLanguage === "vi" ? "Tiếng Việt" : "English"}!`);
+    });
+    
+    
+    </script>
+    

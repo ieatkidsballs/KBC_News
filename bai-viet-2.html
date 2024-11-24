@@ -13,6 +13,7 @@
             <li><a href="index.html">Trang Chủ</a></li>
             <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
             <li><a href="lien-he.html">Liên Hệ</a></li>
+            <li><a href="settings.html" class="active">Cài đặt</a></li>
             <button id="mode-toggle">🌙 Dark Mode</button>
         </ul>
     </nav>
@@ -55,3 +56,23 @@
         }
     });
 </script>
+
+<script>
+    // Tải lựa chọn ngôn ngữ từ localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedLanguage = localStorage.getItem("language");
+        if (savedLanguage) {
+            document.querySelector(`input[value="${savedLanguage}"]`).checked = true;
+        }
+    });
+    
+    // Lưu ngôn ngữ khi nhấn nút
+    document.getElementById("save-settings").addEventListener("click", () => {
+        const selectedLanguage = document.querySelector('input[name="language"]:checked').value;
+        localStorage.setItem("language", selectedLanguage);
+        alert(`Cài đặt đã được lưu: ${selectedLanguage === "vi" ? "Tiếng Việt" : "English"}!`);
+    });
+    
+    
+    </script>
+    

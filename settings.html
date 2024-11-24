@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link" data-en="Home" data-vi="Trang chủ">Trang chủ</a></li>
+                <li><a href="gioi-thieu.html" class="nav-link" data-en="About" data-vi="Giới thiệu">Giới thiệu</a></li>
+                <li><a href="lien-he.html" class="nav-link" data-en="Contact" data-vi="Liên hệ">Liên hệ</a></li>
+                <li><a href="settings.html" class="active" data-en="Settings" data-vi="Cài đặt">Cài đặt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="settings-container">
+        <h1 data-en="Language Settings" data-vi="Cài đặt ngôn ngữ">Cài đặt ngôn ngữ ⚙️</h1>
+        <form id="language-form">
+            <div class="form-group">
+                <label for="language" data-en="Choose Language:" data-vi="Chọn ngôn ngữ:">Chọn ngôn ngữ:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="language" value="vi" checked>
+                        Tiếng Việt 🇻🇳
+                    </label>
+                    <label>
+                        <input type="radio" name="language" value="en">
+                        English 🇺🇸
+                    </label>
+                </div>
+            </div>
+            <button type="button" id="save-settings" class="btn-submit" data-en="Save Settings" data-vi="Lưu cài đặt">Lưu cài đặt</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 KBC News. All rights reserved.</p>
+    </footer>
+
+    <!-- Nhúng JavaScript -->
+    <script src="settings.js"></script>
+</body>
+</html>
+
+
+
+
+<script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const body = document.body;
+
+    // Kiểm tra nếu người dùng đã chọn chế độ trước đó
+    if (localStorage.getItem('mode') === 'dark') {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '☀️ Light Mode';
+    }
+
+    modeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+            modeToggle.textContent = '☀️ Light Mode';
+        } else {
+            localStorage.setItem('mode', 'light');
+            modeToggle.textContent = '🌙 Dark Mode';
+        }
+    });
+</script>
+
+<script>
+document.getElementById('save-settings').addEventListener('click', function() {
+    const language = document.querySelector('input[name="language"]:checked').value;
+
+    // Lưu ngôn ngữ vào localStorage
+    localStorage.setItem('language', language);
+
+    // Cập nhật nội dung trên trang theo ngôn ngữ
+    updateLanguage(language);
+
+    // Thông báo cho người dùng
+    alert(`Ngôn ngữ đã được thay đổi sang ${language === 'vi' ? 'Tiếng Việt' : 'English'}`);
+});
+
+// Hàm cập nhật ngôn ngữ
+function updateLanguage(language) {
+    const elements = document.querySelectorAll('[data-en], [data-vi]');
+    
+    elements.forEach(function(element) {
+        const enText = element.getAttribute('data-en');
+        const viText = element.getAttribute('data-vi');
+
+        if (language === 'en') {
+            element.innerText = enText;
+        } else {
+            element.innerText = viText;
+        }
+    });
+}
+
+// Đảm bảo rằng khi trang được tải lại, ngôn ngữ được lấy từ localStorage
+window.onload = function() {
+    const language = localStorage.getItem('language') || 'vi'; // Mặc định là Tiếng Việt
+    document.querySelector(`input[name="language"][value="${language}"]`).checked = true;
+    updateLanguage(language);
+};
+
+
+</script>
